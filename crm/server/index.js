@@ -9,7 +9,7 @@ const authRoutes = require('./routes/auth');
 const leadRoutes = require('./routes/leads');
 const userRoutes = require('./routes/users');
 const dashboardRoutes = require('./routes/dashboard');
-
+fetch(`${import.meta.env.VITE_API_URL}/api/leads`);
 const app = express();
 
 // Rate limiting
