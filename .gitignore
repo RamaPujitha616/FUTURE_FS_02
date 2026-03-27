@@ -4,6 +4,7 @@ node_modules/
 # Environment variables
 .env
 crm/server/.env
+crm/server/node_modules/
 
 # Logs
 logs
