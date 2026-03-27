@@ -21,7 +21,22 @@ const limiter = rateLimit({
 
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Allow any localhost origin
+    if (origin.includes('localhost')) {
+      return callback(null, true);
+    }
+    
+    // Allow the configured client URL
+    if (origin === process.env.CLIENT_URL) {
+      return callback(null, true);
+    }
+    
+    callback(new Error('Not allowed by CORS'));
+  },
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
