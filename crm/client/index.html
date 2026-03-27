@@ -129,12 +129,7 @@ tr:last-child td{border-bottom:none;}
 const {useState,useEffect,useContext,createContext,useRef,useCallback}=React;
 
 // ─── API CONFIG ─────────────────────────────────────────────────────────────
-const API_BASE = 'https://future-fs-02-32p0.onrender.com/api';
-
-// Example:
-fetch(`${API_BASE}/leads`)
-  .then(res => res.json())
-  .then(data => console.log(data));
+const API_BASE = 'http://localhost:5000/api';
 const api = axios.create({baseURL: API_BASE});
 api.interceptors.request.use(cfg=>{
   const token=localStorage.getItem('token');
