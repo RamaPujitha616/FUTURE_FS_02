@@ -4,6 +4,7 @@
   "description": "Client Lead Management System - Backend",
   "main": "index.js",
   "scripts": {
+    "build": "echo \"Build step not required\"",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
